@@ -1,0 +1,7 @@
+﻿<Application
+    x:Class="BudgetApp2.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BudgetApp2.UWP">
+
+</Application>

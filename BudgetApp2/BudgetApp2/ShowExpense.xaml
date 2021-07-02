@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetApp2.ShowExpense">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Add_EditExpense" Text="{Binding ToolBar}"  Clicked="Add_EditExpense_Clicked"  >
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ScrollView BackgroundColor="LightCyan">
+
+        <ListView x:Name="CategorieslistView" HasUnevenRows="True" BackgroundColor="LightGray"                               
+              SelectionMode="Single" >
+            <!--CachingStrategy="RecycleElementAndDataTemplate"-->
+            <ListView.Header>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Allowed Budget: "  Grid.Row="0" FontFamily="Lobster"  FontSize="20" Margin="5,0,0,0" Grid.ColumnSpan="2" TextColor="Purple"/>
+                    <Label Text="Total Expense: "    Grid.Row="1"  FontSize="20"  Grid.ColumnSpan="2" Margin="5,0,0,0"  TextColor="Purple"/>
+                    <Label Text="Amount left "    Grid.Row="2" FontFamily="Lobster"   FontSize="20" Margin="10,0,0,0" Grid.ColumnSpan="2" HorizontalTextAlignment="Start" TextColor="Red"></Label>
+                    <Label Text="{Binding Totalexpense}" x:Name="Totalexpense" FontAttributes="Bold" FontSize="20" Grid.Row="1" Margin="30,0,0,0" Grid.Column="1" Grid.ColumnSpan="2" TextColor="DodgerBlue"></Label>
+                    <Label Text="Expense by Category" HorizontalTextAlignment="Center" Grid.ColumnSpan="2" Grid.Row="4" TextColor="Purple"  FontSize="Large" FontFamily="Lobster" FontAttributes="Bold"></Label>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell Height="100">
+                        <Frame  HeightRequest="1000"
+                               Padding="1" BackgroundColor="lightgray" >
+
+
+                            <StackLayout Orientation="Vertical">
+
+                                <StackLayout Orientation="Horizontal" >
+                                <Label Text="{x:Binding CategoryName}"
+                                    WidthRequest="200" HeightRequest="30"
+                                      FontSize="20" TextColor="Purple" Margin="10,0,0,0">
+                                    </Label>                                       
+                                    <Label
+                                    Text="{x:Binding CategoryCost, Mode=OneWay}" 
+                                    FontSize="20" 
+                                    Margin="90,0,0,0" WidthRequest="100" HeightRequest="30" TextColor="DodgerBlue"                                 
+                                    VerticalTextAlignment="Center">
+                                    </Label>
+                            </StackLayout>
+
+
+                               
+                                <Label Text="{Binding date}" Margin="10,0,0,0" TextColor="Black" FontSize="15" ></Label>
+
+                            </StackLayout>
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>
