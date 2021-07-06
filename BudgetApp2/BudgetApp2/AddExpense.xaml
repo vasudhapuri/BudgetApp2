@@ -2,55 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetApp2.AddExpense">
-    <ContentPage.Content>
-        <ScrollView Orientation="Vertical" BackgroundColor="LightGray" >
+    <!--<Button Text="hello"/>-->
 
-            <ListView x:Name="ExpensesListView" ItemSelected="ExpensesListView_ItemSelected" SelectionMode="Single"
-                           HasUnevenRows="True"  
-                        ItemsSource="{Binding expenses,Mode=TwoWay}">
 
-                <!--listview.header>
-                    <grid >
-                        <grid.columndefinitions>
-                            <columndefinition width="5*" />
-                            <columndefinition width="5*"/>
-                        </grid.columndefinitions>
-                        <grid.rowdefinitions>
-                            <rowdefinition height="auto" />
-                        </grid.rowdefinitions>
-                        <label text="expense categories" backgroundcolor="hotpink" fontattributes="bold" grid.columnspan="2" grid.row="0" fontsize="25" margin="20,0,0,0" horizontaltextalignment="center"/>
-                        
-                    </grid>
-                </-->
-                <ListView.ItemTemplate>
+    <ListView x:Name="ExpensesListView" SelectionMode="Single"
+                           HasUnevenRows="True" >
+
+
+        <ListView.ItemTemplate>
                     <DataTemplate >
-                        <ViewCell>
-                            <Frame OutlineColor="Black" BackgroundColor="LightGray"
-                               Padding="5" >
+                       
+                            
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="{x:Binding ImageFile,Mode=TwoWay}" 
+                                    <Image x:Name="CategoryImage" Source="{x:Binding CategoryImage,Mode=TwoWay}" 
                                     WidthRequest="45" HeightRequest="45"/>
-                                   
-                                    <Label
-                                    Text="{x:Binding expenseCategory}" x:Name="ExpenseCategoryLabel"
+
+                                 <Label x:Name="ExpenseCategoryLabel"
+                                    Text="cat" 
                                     FontSize="20" FontAttributes="Bold"
                                     Margin="12,0,0,0" TextColor="Purple" WidthRequest="100" HeightRequest="60"   
                                          VerticalTextAlignment="Center">
                                     </Label>
 
-                                    <StackLayout Margin="10,0,0,0" Orientation="Vertical"   >
-                                        <Label Text="Amount Spent ($)" FontSize="20" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Purple" ></Label>
-                                        <Editor x:Name="CostOfCategory" FontSize="10" Text="{Binding expenseCost, Mode=TwoWay}" BindingContextChanged="ExpCatCost_BindingContextChanged"   TextColor="DodgerBlue"/>
-                                    </StackLayout>
+                                    
                                     
                                 </StackLayout>
-                            </Frame>
-                        </ViewCell>
+                        
+                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
 
             </ListView>
 
-        </ScrollView>
-    </ContentPage.Content>
+            
+
+ 
+        
+    
+    
 </ContentPage>

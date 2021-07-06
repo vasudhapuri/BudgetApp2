@@ -10,7 +10,7 @@
                        FontFamily="Arial">
             </Label>
 
-            <Editor  x:Name="SetBudget"
+            <Editor  x:Name="SetBudgetEditor"
                      Placeholder="Enter budget here"
                      FontSize="Medium"
                      HeightRequest="60">

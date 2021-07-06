@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetApp2.Android", "Budge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetApp2.iOS", "BudgetApp2\BudgetApp2.iOS\BudgetApp2.iOS.csproj", "{D406208F-C48F-499B-89A7-51FC1A591A7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetApp2", "BudgetApp2\BudgetApp2\BudgetApp2.csproj", "{D08C6659-95F0-4D79-9756-6050B36FF5E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetApp2", "BudgetApp2\BudgetApp2\BudgetApp2.csproj", "{D08C6659-95F0-4D79-9756-6050B36FF5E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{0EFC073A-AFB1-4F00-8996-1D2E53E2E045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
