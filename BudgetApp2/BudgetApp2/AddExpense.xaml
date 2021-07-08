@@ -2,26 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetApp2.AddExpense"
-             xmlns:model="clr-namespace:BudgetApp2" BackgroundColor="LightCyan">
+             xmlns:model="clr-namespace:BudgetApp2" BackgroundColor="LightGray">
 
     <StackLayout>
-        <ListView x:Name="ExpensesListView" ItemsSource="{Binding exp1 ,Mode=TwoWay}"  
-                  Margin="20">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Amount Spent" FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"> </Label>
+            <Label Text="$" FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Editor  Placeholder="Enter amount spent"/>            
+            </StackLayout>
 
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="model:Expense">
-                    <StackLayout Orientation="Horizontal">
-                        <Label      Text="{x:Binding CategoryName}" x:Name="ExpenseCategory"
-                                    FontSize="20" FontAttributes="Bold"
-                                    Margin="12,0,0,0" TextColor="Purple" WidthRequest="100" HeightRequest="100"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Category"  FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Picker x:Name="categorypicker"
+        Title="Select a Catgory">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>EMI</x:String>
+                        <x:String>Grocery </x:String>                        
+                        <x:String> Shopping</x:String>
+                        <x:String> Travel</x:String>
+                        <x:String>Utility Bills</x:String>
+                        <x:String>Miscellaneous</x:String>
 
-            <Label Text="{Binding CategoryCost}" />
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
 
-            <Editor Text="123" />
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Date of Purchase" FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
 
-    </StackLayout>
-    </DataTemplate>
-    </ListView.ItemTemplate>
-     </ListView>
+            <DatePicker MinimumDate="07/01/2021"
+            MaximumDate="07/31/2021"
+            />
+            
+            </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Save" BackgroundColor="LemonChiffon" Margin="55" FontFamily="Lobster"></Button>
+
+            <Button Text="Cancel"  BackgroundColor="LemonChiffon" Margin="55" FontFamily="Lobster"></Button>
+
+        </StackLayout>
     </StackLayout>
 </ContentPage>

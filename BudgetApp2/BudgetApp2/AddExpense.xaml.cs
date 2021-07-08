@@ -16,7 +16,7 @@ namespace BudgetApp2
     public partial class AddExpense : ContentPage
     {
         string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul.json");
-        //string directory = $@"{location}\Expense.json";          
+              
         public List<Expense> exp1;        
         public AddExpense() //constructor
         {
@@ -52,10 +52,6 @@ namespace BudgetApp2
             string serializedJson = JsonConvert.SerializeObject(exp1, Formatting.Indented);
             System.IO.File.WriteAllText(fileName, serializedJson);
 
-            if (File.Exists(fileName))
-            {
-                string temp = "parul";
-            }
 
 
         }
