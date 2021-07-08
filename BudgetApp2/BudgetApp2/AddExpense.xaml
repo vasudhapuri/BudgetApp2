@@ -1,43 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BudgetApp2.AddExpense">
-    <!--<Button Text="hello"/>-->
+             x:Class="BudgetApp2.AddExpense"
+             xmlns:model="clr-namespace:BudgetApp2" BackgroundColor="LightCyan">
 
+    <StackLayout>
+        <ListView x:Name="ExpensesListView" ItemsSource="{Binding exp1 ,Mode=TwoWay}"  
+                  Margin="20">
 
-    <ListView x:Name="ExpensesListView" SelectionMode="Single"
-                           HasUnevenRows="True" >
-
-
-        <ListView.ItemTemplate>
-                    <DataTemplate >
-                       
-                            
-                                <StackLayout Orientation="Horizontal">
-                                    <Image x:Name="CategoryImage" Source="{x:Binding CategoryImage,Mode=TwoWay}" 
-                                    WidthRequest="45" HeightRequest="45"/>
-
-                                 <Label x:Name="ExpenseCategoryLabel"
-                                    Text="cat" 
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Expense">
+                    <StackLayout Orientation="Horizontal">
+                        <Label      Text="{x:Binding CategoryName}" x:Name="ExpenseCategory"
                                     FontSize="20" FontAttributes="Bold"
-                                    Margin="12,0,0,0" TextColor="Purple" WidthRequest="100" HeightRequest="60"   
-                                         VerticalTextAlignment="Center">
-                                    </Label>
+                                    Margin="12,0,0,0" TextColor="Purple" WidthRequest="100" HeightRequest="100"/>
 
-                                    
-                                    
-                                </StackLayout>
-                        
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+            <Label Text="{Binding CategoryCost}" />
 
-            </ListView>
+            <Editor Text="123" />
 
-            
-
- 
-        
-    
-    
+    </StackLayout>
+    </DataTemplate>
+    </ListView.ItemTemplate>
+     </ListView>
+    </StackLayout>
 </ContentPage>

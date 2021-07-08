@@ -18,8 +18,8 @@ namespace BudgetApp2
         {
             InitializeComponent();
             MainPage = new EnterBudget();
-            MyPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); ;
-            
+
+            MyPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);             
             App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt");
             if (File.Exists(BudgetFile))
             {
