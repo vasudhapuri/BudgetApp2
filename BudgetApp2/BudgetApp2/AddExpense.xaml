@@ -6,20 +6,20 @@
 
     <StackLayout>
         <StackLayout Orientation="Horizontal">
-            <Label Text="Amount Spent" FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"> </Label>
-            <Label Text="$" FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
-            <Editor  Placeholder="Enter amount spent"/>            
+            <Label Text="Amount Spent" FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"> </Label>
+            <Label Text="$" FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Editor x:Name="AmountSpentEditor" Placeholder="Enter amount spent"/>            
             </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Category"  FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Label Text="Category              "  FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
             <Picker x:Name="categorypicker"
         Title="Select a Catgory">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>EMI</x:String>
                         <x:String>Grocery </x:String>                        
-                        <x:String> Shopping</x:String>
+                        <x:String> Shopping and Enterainment</x:String>
                         <x:String> Travel</x:String>
                         <x:String>Utility Bills</x:String>
                         <x:String>Miscellaneous</x:String>
@@ -30,18 +30,24 @@
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Date of Purchase" FontSize="25" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Label Text="Date of Purchase " FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
 
-            <DatePicker MinimumDate="07/01/2021"
+            <DatePicker x:Name="PickDateEditor" MinimumDate="07/01/2021"
             MaximumDate="07/31/2021"
             />
             
             </StackLayout>
+        
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Expense notes    " FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Editor x:Name="Expensenotes           " Placeholder="Description if any"/>
+
+        </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Button Text="Save" BackgroundColor="LemonChiffon" Margin="55" FontFamily="Lobster"></Button>
+            <Button Text="Save" BackgroundColor="LemonChiffon" Clicked="OnAddExpenseSaveButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
 
-            <Button Text="Cancel"  BackgroundColor="LemonChiffon" Margin="55" FontFamily="Lobster"></Button>
+            <Button Text="Cancel"  BackgroundColor="LemonChiffon" Clicked="OnAddExpenseCancelButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
 
         </StackLayout>
     </StackLayout>

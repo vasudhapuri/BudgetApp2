@@ -15,43 +15,11 @@ namespace BudgetApp2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddExpense : ContentPage
     {
-        string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul.json");
-              
-        public List<Expense> exp1;        
+        //string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul1.json");
+
         public AddExpense() //constructor
         {
-            InitializeComponent();
-            
-                exp1 = new List<Expense>
-            {
-                new Expense
-              {
-                CategoryName = "Travel",
-                CategoryImage = $"Assets/Images/Travel.png",
-                CategoryCost = 120,
-                Date = "01 / 01 / 2020"
-              },
-            new Expense
-              {
-                CategoryName = "Bills",
-                CategoryImage = $"Assets/Images/Travel.png",
-                CategoryCost = 130,
-                Date = "01 / 01 / 2020"
-              },
-            new Expense
-              {
-                CategoryName = "EMI",
-                CategoryImage = $"Assets/Images/Travel.png",
-                CategoryCost = 140,
-                Date = "01 / 01 / 2020"
-              }
-            };
-
-
-
-            string serializedJson = JsonConvert.SerializeObject(exp1, Formatting.Indented);
-            System.IO.File.WriteAllText(fileName, serializedJson);
-
+            InitializeComponent();           
 
 
         }
@@ -59,11 +27,45 @@ namespace BudgetApp2
         {
 
         }
-        
+
         private void ExpensesListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
 
         }
+
+        private async void OnAddExpenseSaveButton_Clicked(object sender, EventArgs e)
+        {
+            string fileName=null;
+            //var exp2 = (Expense)BindingContext;
+            var exp2 = new Expense();
+            if (string.IsNullOrEmpty(fileName))
+            {
+                fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.exp.txt");
+
+                exp2.CategoryName = (categorypicker.SelectedItem).ToString();
+                exp2.CategoryCost = int.Parse(AmountSpentEditor.Text);
+                exp2.Date = PickDateEditor.Date;
+                if (exp2.CategoryName == "Travel")
+                    exp2.CategoryImage = $@"Assets\Images\Travel.png";
+                else if (exp2.CategoryName == "EMI")
+                    exp2.CategoryImage = $@"Assets\Images\EMI.jfif";
+
+                string serializedJson = JsonConvert.SerializeObject(exp2, Formatting.Indented);
+                System.IO.File.WriteAllText(fileName, serializedJson);
+            }
+
+            //if json exists read list<expense> from json else create new list
+            //add exp2 to the list.
+            //write the list back to json.
+
+            await Navigation.PushAsync( new ShowExpense());
+        }
+
+            private void OnAddExpenseCancelButton_Clicked(object sender, EventArgs e)
+            {
+
+            }
+        
     }
 }
     

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 using System.IO;
-using Newtonsoft.Json;
+using System.Linq;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace BudgetApp2
 {
@@ -22,38 +19,55 @@ namespace BudgetApp2
         public string CategorySpent { get; set; }
         public ObservableCollection<Expense> showexp;
 
-        string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul.json");
+        //string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul.json");
         public ShowExpense()
         {
             InitializeComponent();
-           
-            if (File.Exists(fileName))
-            
-                  {
-                    string Text = System.IO.File.ReadAllText(fileName);
-                    List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);
+            //if (File.Exists(fileName))
 
-                showexp = new ObservableCollection<Expense>();
-                foreach (var ele in expenses)
-                    showexp.Add(ele);
+            //      {
+            //        string Text = System.IO.File.ReadAllText(fileName);
+            //        List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);
 
-                }
+            //    showexp = new ObservableCollection<Expense>();
+            //    foreach (var ele in expenses)
+            //        showexp.Add(ele);
+
+            //    }
 
 
-            }
+        }
      
 
         protected override void OnAppearing()
         {
-            if (File.Exists(fileName))
+            var showexplist = new List<Expense>();
+            
+            //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //foreach (FileInfo file in di.GetFiles())
+            //{
+            //    file.Delete();
+            //}
+            var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.exp.txt");
+            if (files.Count()>0)
 
             {
-                string Text = System.IO.File.ReadAllText(fileName);
-                List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);
+                showexplist.Clear();
+                foreach (var filename in files)
+                {
+                    string text = File.ReadAllText(filename);
+                    Expense ex = JsonConvert.DeserializeObject<Expense>(text);
+                    showexplist.Add(ex);
+                }
+               
+                ExpenseListView.ItemsSource = showexplist.OrderBy(n => n.Date).ToList();
+                //
+                //string Text = System.IO.File.ReadAllText(fileName);
+                //List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);
 
-                showexp = new ObservableCollection<Expense>();
-                foreach (var ele in expenses)
-                    showexp.Add(ele);
+                //showexp = new ObservableCollection<Expense>();
+                //foreach (var ele in expenses)
+                //    showexp.Add(ele);
 
             }
 

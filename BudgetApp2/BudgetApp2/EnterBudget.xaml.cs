@@ -18,7 +18,7 @@ namespace BudgetApp2
             InitializeComponent();
         }
 
-        private void OnSaveButtonClicked(object sender, EventArgs e)
+        private async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt"); //creating budget file in folder
             App.IsBudgetSet = true; 
@@ -26,9 +26,10 @@ namespace BudgetApp2
             using (StreamWriter w = File.AppendText(App.BudgetFile))
             {
                 w.Write("=" + int.Parse(SetBudgetEditor.Text)); //eg. true=500 (500 is the budget amt set by user)
-            }            
+            }
+            var ExpPage = new ShowExpense();
+            await Navigation.PushAsync(ExpPage);
 
-           
         }
 
         private void OnDeleteButtonClicked(object sender, EventArgs e)
