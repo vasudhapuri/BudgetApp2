@@ -6,15 +6,37 @@
 
 
     <StackLayout>
-        <Button x:Name="Add_EditExpenseButton" HorizontalOptions="FillAndExpand" Grid.Row="0" Text="Add Expense" BackgroundColor="LemonChiffon" TextColor="Purple" FontFamily="Lobster"  FontSize="Small" Margin="20" Clicked="Add_EditExpenseButton_Clicked"/>
+        <Button x:Name="Add_EditExpenseButton" HorizontalOptions="FillAndExpand" Grid.Row="0" Text="Add Expense" FontAttributes="Bold" BackgroundColor="MistyRose" TextColor="Purple" FontFamily="Lobster"  FontSize="Small" Margin="20" Clicked="Add_EditExpenseButton_Clicked"/>
         <ListView x:Name="ExpenseListView"
                    HeightRequest="500"
                   WidthRequest="500">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Expense">
-                    <ImageCell ImageSource="{Binding CategoryImage}" Text="{Binding CategoryName}" Detail="{Binding CategoryCost}" Height="100"></ImageCell>
-                    <!--<ImageCell ImageSource="{Binding CategoryImage}" Text="{Binding Name}" Detail="{Binding Amount}" Height="100"></ImageCell>-->
-                    <!--<TextCell Text="{Binding Name}" Detail="{Binding Amount}" />-->
+                    <!--<ImageCell ImageSource="{Binding CategoryImage}" Text="{Binding CategoryName}" Detail="{Binding CategoryCost}" Height="100"></ImageCell>-->
+                    
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image>
+                                <Image.Source>
+                                    <FileImageSource File="{Binding CategoryImage}" />
+                                </Image.Source>
+                            </Image>
+                                <Label Grid.Column="0" Text="{Binding CategoryName}" TextColor="DeepPink" FontSize="16"/>
+                                <Label Grid.Column="1" Text="{Binding CategoryCost}" TextColor="DodgerBlue" FontSize="16"/>
+                                <Label Grid.Column="2"  Text="{Binding CategoryDesc}" TextColor="DodgerBlue" FontSize="16"/>
+                                <Label Grid.Column="3" Text="{Binding Date}"/>
+                            </Grid>
+                        </StackLayout>
+                       
+                    </ViewCell>
 
                 </DataTemplate>
             </ListView.ItemTemplate>

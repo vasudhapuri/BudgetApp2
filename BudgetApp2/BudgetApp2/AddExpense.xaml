@@ -19,7 +19,7 @@
                     <x:Array Type="{x:Type x:String}">
                         <x:String>EMI</x:String>
                         <x:String>Grocery </x:String>                        
-                        <x:String> Shopping and Enterainment</x:String>
+                        <x:String> Shopping</x:String>
                         <x:String> Travel</x:String>
                         <x:String>Utility Bills</x:String>
                         <x:String>Miscellaneous</x:String>
@@ -40,14 +40,14 @@
         
         <StackLayout Orientation="Horizontal">
             <Label Text="Expense notes    " FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
-            <Editor x:Name="Expensenotes           " Placeholder="Description if any"/>
+            <Editor x:Name="Expensenotes" Placeholder="Description if any"/>
 
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Button Text="Save" BackgroundColor="LemonChiffon" Clicked="OnAddExpenseSaveButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
+            <Button Text="Save" BackgroundColor="MistyRose" FontAttributes="Bold" Clicked="OnAddExpenseSaveButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
 
-            <Button Text="Cancel"  BackgroundColor="LemonChiffon" Clicked="OnAddExpenseCancelButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
+            <Button Text="Cancel"  BackgroundColor="MistyRose" FontAttributes="Bold" Clicked="OnAddExpenseCancelButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
 
         </StackLayout>
     </StackLayout>

@@ -17,7 +17,7 @@ namespace BudgetApp2
         public App()
         {
             InitializeComponent();
-            MainPage = new EnterBudget();
+            MainPage = new NavigationPage(new EnterBudget());
 
             MyPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);             
             App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt");

@@ -42,7 +42,7 @@ namespace BudgetApp2
         protected override void OnAppearing()
         {
             var showexplist = new List<Expense>();
-            
+
             //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             //foreach (FileInfo file in di.GetFiles())
             //{
@@ -60,7 +60,7 @@ namespace BudgetApp2
                     showexplist.Add(ex);
                 }
                
-                ExpenseListView.ItemsSource = showexplist.OrderBy(n => n.Date).ToList();
+                ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
                 //
                 //string Text = System.IO.File.ReadAllText(fileName);
                 //List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);

@@ -44,11 +44,20 @@ namespace BudgetApp2
 
                 exp2.CategoryName = (categorypicker.SelectedItem).ToString();
                 exp2.CategoryCost = int.Parse(AmountSpentEditor.Text);
-                exp2.Date = PickDateEditor.Date;
+                exp2.CategoryDesc = Expensenotes.Text;
+                exp2.Date = PickDateEditor.Date.ToShortDateString();
                 if (exp2.CategoryName == "Travel")
                     exp2.CategoryImage = $@"Assets\Images\Travel.png";
                 else if (exp2.CategoryName == "EMI")
                     exp2.CategoryImage = $@"Assets\Images\EMI.jfif";
+                else if (exp2.CategoryName=="Grocery")
+                    exp2.CategoryImage = $@"Assets\Images\Groceries.jfif";
+                else if (exp2.CategoryName == "Utility Bills")
+                    exp2.CategoryImage = $@"Assets\Images\Bills.png";
+                else if (exp2.CategoryName== "Shopping")
+                    exp2.CategoryImage = $@"Assets\Images\Shopping.jpg";
+                else
+                    exp2.CategoryImage= $@"Assets\Images\Miscellaneous.png";
 
                 string serializedJson = JsonConvert.SerializeObject(exp2, Formatting.Indented);
                 System.IO.File.WriteAllText(fileName, serializedJson);
@@ -61,10 +70,10 @@ namespace BudgetApp2
             await Navigation.PushAsync( new ShowExpense());
         }
 
-            private void OnAddExpenseCancelButton_Clicked(object sender, EventArgs e)
+            private async void OnAddExpenseCancelButton_Clicked(object sender, EventArgs e)
             {
-
-            }
+               await Navigation.PushAsync(new ShowExpense());
+        }
         
     }
 }

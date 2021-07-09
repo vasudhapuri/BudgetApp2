@@ -8,8 +8,9 @@ namespace BudgetApp2
     {
         public string CategoryName { get; set; }
         public string CategoryImage { get; set; }
-        public int  CategoryCost { get; set; }       
-        public DateTime Date { get; set; }
+        public int  CategoryCost { get; set; }
+        public string CategoryDesc { get; set; }
+        public string Date { get; set; }
         public Expense()
         {
 

@@ -28,6 +28,8 @@ namespace BudgetApp2
                 w.Write("=" + int.Parse(SetBudgetEditor.Text)); //eg. true=500 (500 is the budget amt set by user)
             }
             var ExpPage = new ShowExpense();
+
+
             await Navigation.PushAsync(ExpPage);
 
         }
