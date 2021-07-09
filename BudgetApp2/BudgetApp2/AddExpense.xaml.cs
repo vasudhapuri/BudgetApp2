@@ -47,15 +47,15 @@ namespace BudgetApp2
                 exp2.CategoryDesc = Expensenotes.Text;
                 exp2.Date = PickDateEditor.Date.ToShortDateString();
                 if (exp2.CategoryName == "Travel")
-                    exp2.CategoryImage = $@"Assets/Images/Travel.png";
+                    exp2.CategoryImage = "Travel.png";
                 else if (exp2.CategoryName == "EMI")
-                    exp2.CategoryImage = $@"Assets\Images\EMI.jfif";
+                    exp2.CategoryImage = "EMI.jfif";
                 else if (exp2.CategoryName=="Grocery")
-                    exp2.CategoryImage = $@"Assets\Images\Groceries.jfif";
+                    exp2.CategoryImage = "Groceries.jfif";
                 else if (exp2.CategoryName == "Utility Bills")
-                    exp2.CategoryImage = $@"Assets\Images\Bills.png";
+                    exp2.CategoryImage = "Bills.png";
                 else if (exp2.CategoryName== "Shopping")
-                    exp2.CategoryImage = $@"Assets\Images\Shopping.jpg";
+                    exp2.CategoryImage = "Shopping.jpg";
                 else
                     exp2.CategoryImage= $@"Assets\Images\Miscellaneous.png";
 

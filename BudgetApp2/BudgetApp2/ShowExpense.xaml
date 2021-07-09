@@ -18,20 +18,27 @@
                         <StackLayout Orientation="Horizontal">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="120"/>
-                                    <ColumnDefinition Width="70"/>
-                                    <ColumnDefinition Width="110"/>
-                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="95"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="65"/>
+                                    <ColumnDefinition Width="80"/>
                                 </Grid.ColumnDefinitions>
 
-                            
+
                                 <Label Grid.Column="0" Text="{Binding CategoryName}" TextColor="DeepPink" FontSize="16"/>
-                                <Label Grid.Column="1" Text="{Binding CategoryCost}" TextColor="DodgerBlue" FontSize="16"/>
+                                <Label  Grid.Column="1" Text="{Binding CategoryCost, StringFormat='${0:N}'}"  TextColor="DodgerBlue" FontSize="16"/>
                                 <Label Grid.Column="2"  Text="{Binding CategoryDesc}" TextColor="DodgerBlue" FontSize="16"/>
                                 <Label Grid.Column="3" Text="{Binding Date}"/>
-                                <Image Grid.Column="4" Source="{Binding CategoryImage ,Mode=TwoWay}" 
-                           Aspect="AspectFill"/>
                                 
+                                <Image Grid.Column="4" >                                    
+                                <Image.Source>
+                                        <FileImageSource File="{Binding CategoryImage}"/>
+                                    </Image.Source>
+                                        </Image>
+
+
+
                             </Grid>
                         </StackLayout>                       
                     </ViewCell>
@@ -39,24 +46,15 @@
             </ListView.ItemTemplate>
             </ListView>
 
-        
-        <ListView x:Name="budgetleft"
-                  HeightRequest="200"
-                  WidthRequest="200">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="model:Expense">
-                    <ViewCell>
-            
-        <StackLayout Orientation="Horizontal">
-        <Label Text="Budget Left" FontSize="20" TextColor="Purple" FontAttributes="Bold"></Label>
-          <!--<Label Text="{Binding ExpenseSum}"  FontSize="20" TextColor="DodgerBlue" ></Label>-->
-        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+      
+        <Label Text="Budget Amount remaining: " TextColor="Red" FontSize="20"/>
+        <Label x:Name="label1"  TextColor="DodgerBlue" FontSize="20"> </Label>
+
+
+
 
         
-        
+
+
     </StackLayout>
 </ContentPage>

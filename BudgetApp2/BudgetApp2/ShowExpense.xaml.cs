@@ -51,7 +51,9 @@ namespace BudgetApp2
                     ExpenseSum = ExpenseSum + ex.CategoryCost;
 
                 }
-                
+                label1.Text = (App.BudgetAmt - ExpenseSum).ToString();
+
+
 
                 ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
                 //
