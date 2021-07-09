@@ -11,6 +11,7 @@ namespace BudgetApp2
         public int  CategoryCost { get; set; }
         public string CategoryDesc { get; set; }
         public string Date { get; set; }
+      
         public Expense()
         {
 

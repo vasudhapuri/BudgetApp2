@@ -47,7 +47,7 @@ namespace BudgetApp2
                 exp2.CategoryDesc = Expensenotes.Text;
                 exp2.Date = PickDateEditor.Date.ToShortDateString();
                 if (exp2.CategoryName == "Travel")
-                    exp2.CategoryImage = $@"Assets\Images\Travel.png";
+                    exp2.CategoryImage = $@"Assets/Images/Travel.png";
                 else if (exp2.CategoryName == "EMI")
                     exp2.CategoryImage = $@"Assets\Images\EMI.jfif";
                 else if (exp2.CategoryName=="Grocery")

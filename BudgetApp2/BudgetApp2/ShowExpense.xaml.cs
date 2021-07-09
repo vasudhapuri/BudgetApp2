@@ -23,18 +23,7 @@ namespace BudgetApp2
         public ShowExpense()
         {
             InitializeComponent();
-            //if (File.Exists(fileName))
-
-            //      {
-            //        string Text = System.IO.File.ReadAllText(fileName);
-            //        List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);
-
-            //    showexp = new ObservableCollection<Expense>();
-            //    foreach (var ele in expenses)
-            //        showexp.Add(ele);
-
-            //    }
-
+     
 
         }
      
@@ -42,6 +31,7 @@ namespace BudgetApp2
         protected override void OnAppearing()
         {
             var showexplist = new List<Expense>();
+            int ExpenseSum = 0;
 
             //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             //foreach (FileInfo file in di.GetFiles())
@@ -58,8 +48,11 @@ namespace BudgetApp2
                     string text = File.ReadAllText(filename);
                     Expense ex = JsonConvert.DeserializeObject<Expense>(text);
                     showexplist.Add(ex);
+                    ExpenseSum = ExpenseSum + ex.CategoryCost;
+
                 }
-               
+                
+
                 ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
                 //
                 //string Text = System.IO.File.ReadAllText(fileName);
