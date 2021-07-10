@@ -39,7 +39,7 @@
             </StackLayout>
         
         <StackLayout Orientation="Horizontal">
-            <Label Text="Expense notes    " FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
+            <Label Text="Expense name    " FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
             <Editor x:Name="Expensenotes" TextColor="DodgerBlue" Placeholder="Description if any"/>
 
         </StackLayout>

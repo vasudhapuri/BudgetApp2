@@ -12,10 +12,16 @@ namespace BudgetApp2
         public static bool IsBudgetSet { get; set; }
         public static string BudgetSetOrNot { get; set; }        
         
-           public static int BudgetAmt { get; set; }
+           public static decimal BudgetAmt { get; set; }
         
         public App()
         {
+
+            //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //foreach (FileInfo file in di.GetFiles())
+            //{
+            //    file.Delete();
+            //}
             InitializeComponent();
             MainPage = new NavigationPage(new EnterBudget());
 
@@ -29,7 +35,7 @@ namespace BudgetApp2
 
                 if (BudgetSetOrNot == "True")
                 {
-                    BudgetAmt = int.Parse(splitarr[1]);
+                    BudgetAmt = decimal.Parse(splitarr[1]);
                     MainPage = new NavigationPage(new ShowExpense());
                 }
                 else

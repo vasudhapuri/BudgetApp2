@@ -12,8 +12,8 @@ namespace BudgetApp2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowExpense : ContentPage
     {
-        public static int BudgetAmt { get; set; }
-        public static int TotalAmtSpent { get; set; }
+        public static decimal BudgetAmt { get; set; }
+        public static decimal TotalAmtSpent { get; set; }
         public decimal AmountLeft { get; set; }
         public string Category { get; set; }
         public string CategorySpent { get; set; }
@@ -22,8 +22,10 @@ namespace BudgetApp2
         //string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul.json");
         public ShowExpense()
         {
+
             InitializeComponent();
-     
+             //   Helper.ShowExpense = this;
+
 
         }
      
@@ -31,7 +33,7 @@ namespace BudgetApp2
         protected override void OnAppearing()
         {
             var showexplist = new List<Expense>();
-            int ExpenseSum = 0;
+            decimal ExpenseSum = 0;
 
             //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             //foreach (FileInfo file in di.GetFiles())
@@ -51,21 +53,15 @@ namespace BudgetApp2
                     ExpenseSum = ExpenseSum + ex.CategoryCost;
 
                 }
-                label1.Text = (App.BudgetAmt - ExpenseSum).ToString();
+                
 
 
 
-                ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
-                //
-                //string Text = System.IO.File.ReadAllText(fileName);
-                //List<Expense> expenses = JsonConvert.DeserializeObject<List<Expense>>(Text);
-
-                //showexp = new ObservableCollection<Expense>();
-                //foreach (var ele in expenses)
-                //    showexp.Add(ele);
+                ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => DateTime.Parse(n.Date)).ToList();
+                //ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
 
             }
-
+            label1.Text = "$ "+(App.BudgetAmt - ExpenseSum).ToString();
 
         }
 

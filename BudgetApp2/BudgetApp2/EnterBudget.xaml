@@ -21,9 +21,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="1" Text="Save" BackgroundColor="LightCyan" TextColor="DarkGreen"
+                <Button Grid.Row="1" Text="Save" BackgroundColor="MistyRose" TextColor="DarkGreen"
                     Clicked="OnSaveButtonClicked"/>
-                <Button Grid.Row="1" Grid.Column="1" BackgroundColor="LightCyan" TextColor="Red"
+                <Button Grid.Row="1" Grid.Column="1" BackgroundColor="MistyRose" TextColor="Red"
                     Text="Delete"
                     Clicked="OnDeleteButtonClicked"/>
             </Grid>

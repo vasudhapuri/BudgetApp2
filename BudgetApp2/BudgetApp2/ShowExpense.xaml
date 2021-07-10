@@ -9,29 +9,32 @@
         <Button x:Name="Add_EditExpenseButton" HorizontalOptions="FillAndExpand" Grid.Row="0" Text="Add Expense" FontAttributes="Bold" BackgroundColor="MistyRose" TextColor="Purple" FontFamily="Lobster"  FontSize="Small" Margin="20" Clicked="Add_EditExpenseButton_Clicked"/>
         <ListView x:Name="ExpenseListView"
                    HeightRequest="500"
-                  WidthRequest="500">
+                  WidthRequest="500"  HasUnevenRows="true" >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Expense">
-                    <!--<ImageCell ImageSource="{Binding CategoryImage}" Text="{Binding CategoryName}" Detail="{Binding CategoryCost}" Height="100"></ImageCell>-->
+                   
                     
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Grid>
+                            <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="95"/>
+                                    <ColumnDefinition Width="105"/>
                                     <ColumnDefinition Width="60"/>
-                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="85"/>
                                     <ColumnDefinition Width="65"/>
-                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="55"/>
                                 </Grid.ColumnDefinitions>
+                                
+                          
 
 
                                 <Label Grid.Column="0" Text="{Binding CategoryName}" TextColor="DeepPink" FontSize="16"/>
                                 <Label  Grid.Column="1" Text="{Binding CategoryCost, StringFormat='${0:N}'}"  TextColor="DodgerBlue" FontSize="16"/>
                                 <Label Grid.Column="2"  Text="{Binding CategoryDesc}" TextColor="DodgerBlue" FontSize="16"/>
                                 <Label Grid.Column="3" Text="{Binding Date}"/>
-                                
-                                <Image Grid.Column="4" >                                    
+
+                                <Image Grid.Column="4" WidthRequest = "5"
+                HeightRequest = "5" >                                    
                                 <Image.Source>
                                         <FileImageSource File="{Binding CategoryImage}"/>
                                     </Image.Source>
