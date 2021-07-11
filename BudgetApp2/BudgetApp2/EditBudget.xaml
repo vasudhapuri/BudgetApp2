@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudgetApp2.EditBudget">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Editor x:Name="EditBudgetEditor" TextColor="DodgerBlue" Placeholder="Enter updated budget"></Editor>
+            <StackLayout Orientation="Horizontal">
+                <Button  Text="Save"  BackgroundColor="MistyRose" TextColor="Purple" FontAttributes="Bold" Clicked="OnEditExpenseSaveButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
+                <Button  Text="Cancel"  BackgroundColor="MistyRose" TextColor="Purple" FontAttributes="Bold" Clicked="OnEditExpenseCancelButton_Clicked" Margin="55" FontFamily="Lobster"></Button>
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

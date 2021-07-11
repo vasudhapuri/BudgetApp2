@@ -52,10 +52,7 @@ namespace BudgetApp2
                     showexplist.Add(ex);
                     ExpenseSum = ExpenseSum + ex.CategoryCost;
 
-                }
-                
-
-
+                }            
 
                 ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => DateTime.Parse(n.Date)).ToList();
                 //ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
@@ -77,11 +74,25 @@ namespace BudgetApp2
             //});
         }
 
-        private void EditBudget_Clicked(object sender, EventArgs e)
+        private async void EditBudget_Clicked(object sender, EventArgs e)
         {
 
-       
+
+            //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.exp.txt");
+            //if (File.Exists(@"di\BudgetFile.txt"))
+
+            //{
+            //    File.Delete(@"di\BudgetFile.txt");
+
+            //}
+            await Navigation.PushAsync(new EditBudget());
 
         }
     }
     }
+//System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+//foreach (FileInfo file in di.GetFiles())
+//{
+//    file.Delete();
+//}
