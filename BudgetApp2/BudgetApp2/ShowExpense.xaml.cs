@@ -77,7 +77,11 @@ namespace BudgetApp2
             //});
         }
 
+        private void EditBudget_Clicked(object sender, EventArgs e)
+        {
 
+       
 
         }
+    }
     }

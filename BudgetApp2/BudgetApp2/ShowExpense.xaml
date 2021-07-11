@@ -40,8 +40,6 @@
                                     </Image.Source>
                                         </Image>
 
-
-
                             </Grid>
                         </StackLayout>                       
                     </ViewCell>
@@ -49,15 +47,19 @@
             </ListView.ItemTemplate>
             </ListView>
 
-      
-        <Label Text="Budget Amount remaining: " TextColor="Red" FontSize="20"/>
+        <Button x:Name="EditBudget" Text="Edit Budget" Margin="20" Clicked="EditBudget_Clicked" FontAttributes="Bold" BackgroundColor="MistyRose" TextColor="Purple" FontFamily="Lobster"  FontSize="Small"/>
+        <Label Text="Budget Amount remaining: " TextColor="Red" FontSize="20"/>        
         <Label x:Name="label1"  TextColor="DodgerBlue" FontSize="20"> </Label>
-
-
-
-
+        
         
 
 
+
+
+
+
+
     </StackLayout>
+  
+
 </ContentPage>
