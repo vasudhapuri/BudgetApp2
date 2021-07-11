@@ -55,7 +55,7 @@ namespace BudgetApp2
                 else if (exp2.CategoryName == "Utility Bills")
                     exp2.CategoryImage = "Bills.png";
                 else if (exp2.CategoryName== "Shopping")
-                    exp2.CategoryImage = "Shopping.png";
+                    exp2.CategoryImage = "Shopping.jfif";
                 else
                     exp2.CategoryImage= "Miscellaneous.png";
 

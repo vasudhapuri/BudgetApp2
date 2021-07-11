@@ -14,13 +14,13 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Category              "   FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
             <Picker x:Name="categorypicker"
-        Title="Select a Catgory" TextColor="DodgerBlue">
+        Title="Select a Category" TextColor="DodgerBlue">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>EMI</x:String>
-                        <x:String>Grocery </x:String>                        
-                        <x:String> Shopping</x:String>
-                        <x:String> Travel</x:String>
+                        <x:String>Grocery</x:String>
+                        <x:String>Shopping</x:String>
+                        <x:String>Travel</x:String>
                         <x:String>Utility Bills</x:String>
                         <x:String>Miscellaneous</x:String>
 

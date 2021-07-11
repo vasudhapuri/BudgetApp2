@@ -114,19 +114,19 @@
     <AndroidAsset Include="Assets\Images\Shopping.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Groceries.jfif" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Miscellaneous.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Bills.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Shopping.png" />
+    <AndroidResource Include="Resources\drawable\EMI.jfif" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\EMI.png" />
+    <AndroidResource Include="Resources\drawable\Groceries.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Shopping.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Miscellaneous.jfif" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BudgetApp2.ShowExpense"
-             xmlns:model="clr-namespace:BudgetApp2" Background="Lightgray">
+             xmlns:model="clr-namespace:BudgetApp2" Background="Lightgray" Title="Your Monthly Expenses">
 
 
     <StackLayout>
@@ -33,6 +33,7 @@
                                 <Label Grid.Column="2"  Text="{Binding CategoryDesc}" TextColor="DodgerBlue" FontSize="16"/>
                                 <Label Grid.Column="3" Text="{Binding Date}"/>
 
+                                
                                 <Image Grid.Column="4" WidthRequest = "5"
                 HeightRequest = "5" >                                    
                                 <Image.Source>
@@ -46,12 +47,23 @@
                 </DataTemplate >
             </ListView.ItemTemplate>
             </ListView>
-
+        
+       
         <Button x:Name="EditBudget" Text="Edit Budget" Margin="20" Clicked="EditBudget_Clicked" FontAttributes="Bold" BackgroundColor="MistyRose" TextColor="Purple" FontFamily="Lobster"  FontSize="Small"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Total Budget: " TextColor="Red" FontSize="20"/>
+            <Label x:Name="TotalBudgetLabel"  TextColor="DodgerBlue" FontSize="20"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+        <Label Text="Amount Spent: " TextColor="Red" FontSize="20"/>
+        <Label x:Name="AmountSpentLabel"  TextColor="DodgerBlue" FontSize="20"></Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
         <Label Text="Budget Amount remaining: " TextColor="Red" FontSize="20"/>        
         <Label x:Name="label1"  TextColor="DodgerBlue" FontSize="20"> </Label>
-        
-        
+        </StackLayout>
+
+
 
 
 
