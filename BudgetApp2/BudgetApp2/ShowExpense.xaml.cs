@@ -19,31 +19,24 @@ namespace BudgetApp2
         public string CategorySpent { get; set; }
         public ObservableCollection<Expense> showexp;
 
-        //string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jul.json");
         public ShowExpense()
         {
 
             InitializeComponent();
-            TotalBudgetLabel.Text = App.BudgetAmt.ToString();
-            //AmountSpentLabel.Text = ExpenseSum.ToString();
-            //   Helper.ShowExpense = this;
+            TotalBudgetLabel.Text = "$"+ App.BudgetAmt.ToString();
+
 
 
         }
-     
+
 
         protected override void OnAppearing()
         {
             var showexplist = new List<Expense>();
             decimal ExpenseSum = 0;
 
-            //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            //foreach (FileInfo file in di.GetFiles())
-            //{
-            //    file.Delete();
-            //}
             var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.exp.txt");
-            if (files.Count()>0)
+            if (files.Count() > 0)
 
             {
                 showexplist.Clear();
@@ -54,49 +47,33 @@ namespace BudgetApp2
                     showexplist.Add(ex);
                     ExpenseSum = ExpenseSum + ex.CategoryCost;
 
-                }            
+                }
 
                 ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => DateTime.Parse(n.Date)).ToList();
-                //ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
-                
+
+
             }
-            label1.Text = "$ "+(App.BudgetAmt - ExpenseSum).ToString();
-            TotalBudgetLabel.Text = App.BudgetAmt.ToString();
-            AmountSpentLabel.Text = ExpenseSum.ToString();
+            label1.Text = "$ " + (App.BudgetAmt - ExpenseSum).ToString();
+            TotalBudgetLabel.Text = "$ "+ App.BudgetAmt.ToString();
+            AmountSpentLabel.Text = "$ "+ ExpenseSum.ToString();
 
         }
 
-        private async void Add_EditExpenseButton_Clicked(object sender, EventArgs e)
+        private async void AddExpenseButton_Clicked(object sender, EventArgs e)
         {
             var ExpPage = new AddExpense();
 
             await Navigation.PushAsync(ExpPage);
 
-            //await Navigation.PushModalAsync(new AddExpense
-            //{
-            //    BindingContext = new AddExpense()
-            //});
+
         }
 
         private async void EditBudget_Clicked(object sender, EventArgs e)
         {
 
 
-            //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            //var files = Directory.EnumerateFiles(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "*.exp.txt");
-            //if (File.Exists(@"di\BudgetFile.txt"))
-
-            //{
-            //    File.Delete(@"di\BudgetFile.txt");
-
-            //}
             await Navigation.PushAsync(new EditBudget());
 
         }
     }
-    }
-//System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-//foreach (FileInfo file in di.GetFiles())
-//{
-//    file.Delete();
-//}
+}

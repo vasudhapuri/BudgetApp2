@@ -16,12 +16,12 @@ namespace BudgetApp2
         
         public App()
         {
-
-            //System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-            //foreach (FileInfo file in di.GetFiles())
-            //{
-            //    file.Delete();
-            //}
+          //  for deletion of files
+            System.IO.DirectoryInfo di = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
             InitializeComponent();
             MainPage = new NavigationPage(new EnterBudget());
 

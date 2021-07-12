@@ -22,11 +22,11 @@ namespace BudgetApp2
         {
 
             App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt"); //creating budget file in folder
-            App.IsBudgetSet = true; 
+            App.IsBudgetSet = true;
             File.WriteAllText(App.BudgetFile, App.IsBudgetSet.ToString()); //writing 'true' in BudgetSetFile.txt
             using (StreamWriter w = File.AppendText(App.BudgetFile))
             {
-                w.Write("=" + decimal.Parse(SetBudgetEditor.Text)); //eg. true=500 (500 is the budget amt set by user)
+                w.Write("=" + decimal.Parse(SetBudgetEditor.Text)); //eg. true=1000 (1000 is the budget amount set by user)
                 App.BudgetAmt = decimal.Parse(SetBudgetEditor.Text);
             }
             var ExpPage = new ShowExpense();

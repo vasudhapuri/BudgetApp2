@@ -6,7 +6,7 @@
 
 
     <StackLayout>
-        <Button x:Name="Add_EditExpenseButton" HorizontalOptions="FillAndExpand" Grid.Row="0" Text="Add Expense" FontAttributes="Bold" BackgroundColor="MistyRose" TextColor="Purple" FontFamily="Lobster"  FontSize="Small" Margin="20" Clicked="Add_EditExpenseButton_Clicked"/>
+        <Button x:Name="AddExpenseButton" HorizontalOptions="FillAndExpand" Grid.Row="0" Text="Add Expense" FontAttributes="Bold" BackgroundColor="MistyRose" TextColor="Purple" FontFamily="Lobster"  FontSize="Small" Margin="20" Clicked="AddExpenseButton_Clicked"/>
         <ListView x:Name="ExpenseListView"
                    HeightRequest="500"
                   WidthRequest="500"  HasUnevenRows="true" >

@@ -32,8 +32,7 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Date of Purchase " FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
 
-            <DatePicker x:Name="PickDateEditor" TextColor="DodgerBlue" MinimumDate="07/01/2021"
-            MaximumDate="07/31/2021"
+            <DatePicker x:Name="PickDateEditor"  Format="D" TextColor="DodgerBlue" 
             />
             
             </StackLayout>
