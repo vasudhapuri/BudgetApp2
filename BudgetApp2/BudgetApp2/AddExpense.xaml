@@ -13,8 +13,8 @@
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Category              "   FontSize="20" FontFamily="Lobster" FontAttributes="Bold" TextColor="Purple"></Label>
-            <Picker x:Name="categorypicker"
-        Title="Select a Category" TextColor="DodgerBlue">
+            <Picker x:Name="categorypicker" SelectedIndex="5" SelectedItem="Miscellaneous"
+        Title="Select an Expense Category" TextColor="DodgerBlue">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>EMI</x:String>

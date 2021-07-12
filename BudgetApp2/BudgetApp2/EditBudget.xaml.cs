@@ -17,29 +17,26 @@ namespace BudgetApp2
         public EditBudget()
         {
             InitializeComponent();
+            EditBudgetEditor.Text = App.BudgetAmt.ToString();
         }
 
         private async void OnEditExpenseSaveButton_Clicked(object sender, EventArgs e)
         {
-            //    MyPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            //    App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt");
-            //    if (File.Exists(App.BudgetFile))
-            //    {
-            //string BudgetFileText = File.ReadAllText(App.BudgetFile);//read text from budgetfile
-            //var splitarr = BudgetFileText.Split('=');
-            //App.BudgetSetOrNot = splitarr[0];
+            App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt"); //creating budget file in folder
+            App.IsBudgetSet = true;
+            File.Delete(App.BudgetFile);
+            File.WriteAllText(App.BudgetFile, App.IsBudgetSet.ToString()); //writing 'true' in BudgetSetFile.txt
+            using (StreamWriter w = File.AppendText(App.BudgetFile))
+            {
+                w.Write("=" + decimal.Parse(EditBudgetEditor.Text)); //eg. true=500 (500 is the budget amt set by user)
+                App.BudgetAmt = decimal.Parse(EditBudgetEditor.Text);
+            }
+            var ExpPage = new ShowExpense();
 
-            //if (App.BudgetSetOrNot == "True")
-            //{
-            App.BudgetAmt = decimal.Parse(EditBudgetEditor.Text);
-            //App.BudgetAmt = decimal.Parse(splitarr[1]);
-            //ShowExpense.label1.Text=
-            await Navigation.PushAsync(new ShowExpense());
-            //}
-            //else
-            //{
-            //    MainPage = new NavigationPage(new EnterBudget());
-            //}
+
+            await Navigation.PushAsync(ExpPage);
+
+
         }
 
         private async void OnEditExpenseCancelButton_Clicked(object sender, EventArgs e)

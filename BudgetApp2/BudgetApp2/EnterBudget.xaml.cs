@@ -20,8 +20,7 @@ namespace BudgetApp2
 
         private async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            ShowExpense s = new ShowExpense();
-            //s.label1.Text = SetBudgetEditor.Text;
+
             App.BudgetFile = Path.Combine(App.MyPath, "BudgetSetFile.txt"); //creating budget file in folder
             App.IsBudgetSet = true; 
             File.WriteAllText(App.BudgetFile, App.IsBudgetSet.ToString()); //writing 'true' in BudgetSetFile.txt

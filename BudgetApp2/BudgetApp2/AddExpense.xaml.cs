@@ -42,8 +42,30 @@ namespace BudgetApp2
             {
                 fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{Path.GetRandomFileName()}.exp.txt");
 
+                
+                if (categorypicker.SelectedItem == null)
+                {
+                    await DisplayAlert("","Please select a category", "OK"); //validation to catch user's errors
+                    return;
+                }
                 exp2.CategoryName = (categorypicker.SelectedItem).ToString();
-                exp2.CategoryCost = decimal.Parse(AmountSpentEditor.Text);
+
+
+                
+                if (string.IsNullOrEmpty(AmountSpentEditor.Text.ToString())) //validation to catch user's errors
+                {
+                    await DisplayAlert("", "Amount cannot be blank", "OK");
+                    return;                  
+
+                }
+                exp2.CategoryCost = decimal.Parse(AmountSpentEditor.Text.ToString());
+                
+                if (string.IsNullOrEmpty(Expensenotes.Text)) //validation to catch user's errors
+                {
+                    DisplayAlert("", "Expense description cannot be blank", "OK");
+                    return;
+
+                }
                 exp2.CategoryDesc = Expensenotes.Text;
                 exp2.Date = PickDateEditor.Date.ToShortDateString();
                 if (exp2.CategoryName == "Travel")

@@ -24,7 +24,9 @@ namespace BudgetApp2
         {
 
             InitializeComponent();
-             //   Helper.ShowExpense = this;
+            TotalBudgetLabel.Text = App.BudgetAmt.ToString();
+            //AmountSpentLabel.Text = ExpenseSum.ToString();
+            //   Helper.ShowExpense = this;
 
 
         }
@@ -56,9 +58,11 @@ namespace BudgetApp2
 
                 ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => DateTime.Parse(n.Date)).ToList();
                 //ExpenseListView.ItemsSource = showexplist.OrderByDescending(n => n.Date).ToList();
-
+                
             }
             label1.Text = "$ "+(App.BudgetAmt - ExpenseSum).ToString();
+            TotalBudgetLabel.Text = App.BudgetAmt.ToString();
+            AmountSpentLabel.Text = ExpenseSum.ToString();
 
         }
 
